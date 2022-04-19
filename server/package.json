@@ -1,0 +1,25 @@
+{
+  "name": "p2-iproject-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmt-22-verona-fox/p2-iproject-server.git"
+  },
+  "keywords": [],
+  "author": "abidinAngga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rmt-22-verona-fox/p2-iproject-server/issues"
+  },
+  "homepage": "https://github.com/rmt-22-verona-fox/p2-iproject-server#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "pg": "^8.7.3",
+    "sequelize": "^6.19.0"
+  }
+}
