@@ -65,46 +65,46 @@ class productController {
       await Product.update({ UserId: idUser }, { where: { id: productId } });
       await History.create({ seller: findSeller.email, buyer: email, ProductId: productId });
 
-      switch (message) {
-        case "success":
-          message = `Dear ${email}, you have success buy ${findProduct.name}!`;
-          statusBuy = "Success";
-          break;
-        case "pending":
-          message = `Dear ${email}, you have success buy ${findProduct.name}!`;
-          statusBuy = "Pending";
-          break;
-        case "failed":
-          message = `Dear ${email}, you have success buy ${findProduct.name}!`;
-          statusBuy = "Failed";
-          break;
-        default:
-          break;
-      }
+      // switch (message) {
+      //   case "success":
+      //     message = `Dear ${email}, you have success buy ${findProduct.name}!`;
+      //     statusBuy = "Success";
+      //     break;
+      //   case "pending":
+      //     message = `Dear ${email}, you have success buy ${findProduct.name}!`;
+      //     statusBuy = "Pending";
+      //     break;
+      //   case "failed":
+      //     message = `Dear ${email}, you have success buy ${findProduct.name}!`;
+      //     statusBuy = "Failed";
+      //     break;
+      //   default:
+      //     break;
+      // }
 
-      let testAccount = await nodemailer.createTestAccount();
+      // let testAccount = await nodemailer.createTestAccount();
 
-      let transporter = nodemailer.createTransport({
-        service: "hotmail",
-        auth: {
-          user: "mersiera@hotmail", // generated ethereal user
-          pass: process.env.EMAIL_PASSWORD, // generated ethereal password
-        },
-      });
-      // findSeller.emailz
-      //
-      let info = await transporter.sendMail({
-        from: findSeller.email, // sender address
-        to: email, // list of receivers
-        subject: `${statusBuy} Buying ${findProduct.name} ✔`, // Subject line
-        text: message, // plain text body
-        html: message, // html body
-      });
+      // let transporter = nodemailer.createTransport({
+      //   service: "hotmail",
+      //   auth: {
+      //     user: "mersiera@hotmail", // generated ethereal user
+      //     pass: process.env.EMAIL_PASSWORD, // generated ethereal password
+      //   },
+      // });
+      // // findSeller.emailz
+      // //
+      // let info = await transporter.sendMail({
+      //   from: findSeller.email, // sender address
+      //   to: email, // list of receivers
+      //   subject: `${statusBuy} Buying ${findProduct.name} ✔`, // Subject line
+      //   text: message, // plain text body
+      //   html: message, // html body
+      // });
 
-      console.log("Message sent: %s", info.messageId);
+      // console.log("Message sent: %s", info.messageId);
 
-      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-      console.log(info, "<<<<");
+      // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+      // console.log(info, "<<<<");
       res.status(200).json({ message: "success buy product" });
     } catch (error) {
       console.log(error);
