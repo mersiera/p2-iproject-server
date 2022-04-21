@@ -22,7 +22,7 @@ module.exports = {
       },
       status: {
         type: Sequelize.STRING,
-        allowNull: false,
+        defaultValue: "notAvailable",
       },
       UserId: {
         type: Sequelize.INTEGER,

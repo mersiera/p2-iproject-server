@@ -1,4 +1,13 @@
 const express = require("express");
-const routes = express.Router();
+const authentication = require("../midllewares/authentication");
+const histories = require("./histories");
+const indexRouter = express.Router();
+const products = require("./products");
+const users = require("./users");
 
-module.exports = routes;
+indexRouter.use("/users", users);
+indexRouter.use(authentication);
+indexRouter.use("/products", products);
+indexRouter.use("/histories", histories);
+
+module.exports = indexRouter;
